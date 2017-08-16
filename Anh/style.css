@@ -1,0 +1,47 @@
+.menu {
+	text-align:center;
+	border:2px solid transparent;
+	padding: 5px;
+	margin: 1px;
+	float:left;
+	width: 30%;
+	box-sizing:border-box;
+	background-color:black;
+	clear:right;
+
+}
+
+
+
+a:link {color:red;}
+a:visited{color:grey;}
+a:hover{color:black;background-color:red;}
+a:active{color:violet;} 
+
+
+
+.anh img {
+		border:10px solid transparent;
+		max-width:30%;
+	float:left;
+	padding:5px;
+	margin: 1px;
+box-sizing:border-box;}
+
+.banner img {max-width:92%}
+
+img:hover {
+	
+	background-color:grey;
+	
+}
+
+a {
+	font-size:24px;
+	text-transform:capitalize;
+	font-weight:bold;
+
+}
+
+.no {clear:both}
+
