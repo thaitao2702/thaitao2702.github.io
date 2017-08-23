@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	
+
+	<script>
+
+	
+	
+	//Bai1
+	function binhPhuong(a)
+		{
+		alert (a*a)
+		}
+	
+	
+	//Bai2
+	function binhPhuong1(a,b,c)
+		{
+		alert(binhPhuong(3*a+2*b+c))
+		}
+	
+	
+	
+	//Bai 3
+	function catChuoi (a)
+		{
+			alert(a.substring(0,10)+"...")
+		}
+	
+	//Bai 4
+	function vietHoa(a)
+		{
+			b=a[0].toUpperCase();
+			alert(b+ a.substring(1,a.length))
+		}
+			
+	var a= [];
+	
+	//Bai 5
+	function soNhoNhat(a)
+		{
+			a.sort(function(b,c){return b-c});
+			alert(a[0]);
+		}
+	
+	
+	//Bai 6
+	function tenHocVien(a)
+		{
+			
+			document.write("Danh sach hoc vien: " +a.sort())
+		}
+		
+			
+	//Bai 7
+	var teacher = {
+		firstname: "Hood",
+		lastname: "Robin",
+		age: 12,
+		say: function() 
+		{
+		}	
+		}
+		
+		var student = {
+		firstname: "Tao",
+		lastname: "Thai",
+		age: 14,
+		say: function() {
+			
+		}
+		}
+		
+	var parents = {
+		firstname: "Tao",
+		lastname: "Tuan",
+		age: 19,
+		say: function() {
+			
+		}
+		}
+		
+		var aboutMe = function() 
+		{
+		document.write("Xin chao,toi la " + this.firstname + " " + this.lastname +", nam nay toi " + this.age +" tuoi")
+		}
+		teacher.say = aboutMe;
+		student.say = aboutMe;
+		parents.say = aboutMe;
+				
+	
+		
+	</script>
+	
+	
+	
+</head>
