@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<div id = "wrapper">
+
+<div id ="main">
+<div id="top">
+<h5>CALCULATOR</h5>
+</div>
+
+<div id="screen">
+<input type ="text" id = "x"/>
+</div>
+
+<div id="chucnang">
+
+<div class = "dong" id="dong1">
+<button id="can" onclick="can()"> Sqrt </button>
+<button id="binhphuong" onclick= "binhphuong()">^2</button>
+<button id="reset" onclick="reset()">C</button>
+<button id= "chia" onclick="press(this)">/</button>
+</div>
+
+<div class = "dong" id="dong2">
+<button id="mot" onclick="press(this)">1</button>
+<button id="hai" onclick="press(this)">2</button>
+<button id="ba" onclick="press(this)">3</button>
+<button id= "nhan" onclick="nhan()">X</button>
+</div>
+
+<div class = "dong" id="dong3">
+<button id="bon" onclick="press(this)">4</button>
+<button id="nam" onclick="press(this)">5</button>
+<button id="sau" onclick="press(this)">6</button>
+<button id= "tru" onclick="press(this)">-</button>
+</div>
+
+<div class = "dong" id="dong4">
+<button id="bay" onclick="press(this)">7</button>
+<button id="tam" onclick="press(this)">8</button>
+<button id="chin" onclick="press(this)">9</button>
+<button id= "cong" onclick="press(this)">+</button>
+</div>
+
+<div class = "dong" id="dong5">
+<button id="khong" onclick="press(this)">0</button>
+<button id="cham" onclick="press(this)">.</button>
+<button id="congtru" onclick="congtru()">+/-</button>
+<button id= "bang" onclick="bang()">=</button>
+</div>
+
+
+</div>
+
+</div>
+
+<script>
+
+// function reset ô nhập liệu
+	function reset(){
+		document.getElementById("x").value ="";
+}
+
+// function nhập dữ liệu khi nhấn các nút
+	function press(button) {
+		document.getElementById("x").value += button.innerHTML;
+}
+
+// function để hiển thị dấu * thay vì X khi nhấn nút X
+	function nhan(){
+		document.getElementById("x").value += "*";
+}
+
+// function thực hiện phép tính và đưa giá trị lên màn hinh
+	function bang(){
+		var a =  eval(document.getElementById("x").value);
+		document.getElementById("x").value = a;
+}
+
+// function đổi dấu 
+	function congtru(){
+		if (parseFloat(document.getElementById("x").value) < 0){
+			document.getElementById("x").value = document.getElementById("x").value.substring(1,document.getElementById("x").value.length);
+		}
+		else if(parseFloat(document.getElementById("x").value) > 0){
+			document.getElementById("x").value = "-" + document.getElementById("x").value;
+		}	
+	}
+
+// function thực hiện phép bình phương số hiện tại trong ô nhập liệu	
+	function binhphuong(){
+		document.getElementById("x").value = parseFloat(document.getElementById("x").value)*parseFloat(document.getElementById("x").value);
+	}
+
+// function thực hiện phép căn số hiện tại trong ô nhập liệu	
+	function can(){
+		document.getElementById("x").value=Math.sqrt(parseFloat(document.getElementById("x").value))
+		
+	}
+</script>
+
+</body>
+
+</html>
