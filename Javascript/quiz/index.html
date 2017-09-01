@@ -1,0 +1,178 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+</head>
+
+<body>
+<div id = "wrapper">
+
+<div id = "header">
+</div>
+
+<div id = "cauhoi">Câu hỏi 1: Đội nào lên ngôi vô địch AFC Asian Cup 2011 tổ chức tại Qatar?
+</div>
+
+<div id= "dapan">
+
+<div id="dong1">
+<div id="dapan1" onclick ="checkDapAn(this)" onmouseover ="chuotin(this)" onmouseout="chuotout(this)" >1.Nhật Bản
+
+</div>
+<div class="dung">
+</div>
+</div>
+
+<div id ="dong2">
+<div id="dapan2" onclick ="checkDapAn(this)" onmouseover ="chuotin(this)" onmouseout="chuotout(this)">2.Australia
+</div>
+<div class="dung">
+</div>
+</div>
+
+<div id = "dong3">
+<div id="dapan3" onclick ="checkDapAn(this)" onmouseover ="chuotin(this)" onmouseout="chuotout(this)">3.Hàn Quốc
+</div>
+<div class="dung">
+</div>
+</div>
+
+<div id = "dong4">
+<div id="dapan4" onclick ="checkDapAn(this)" onmouseover ="chuotin(this)" onmouseout="chuotout(this)">4.Uzbekistan
+</div>
+<div class="dung">
+</div>
+</div>
+
+<div id = "tiep" onclick="cautiep()" onmouseover ="chuotin(this)" onmouseout="chuotout(this)">
+Tiếp Tục
+</div>
+
+
+
+
+</div>
+
+<script>
+
+//đáp án chuẩn
+var dapanchuan = [1,2,3,4,1,2];
+
+//mảng câu hỏi
+var question = {
+	cau1: ["Đội nào lên ngôi vô địch AFC Asian Cup 2011 tổ chức tại Qatar?","Nhật Bản","Australia","Hàn Quốc","Uzbekistan","1"],
+	cau2: ["Sông Bến Hải và sông Thạch Hãn nằm ở tỉnh nào?", "Quảng Bình", "Quảng Ninh", "Quảng Trị", "Quảng Ngãi","2"],
+	cau3: ["Trong các cây cầu sau, cầu nào là cầu xoay?", "Cầu Thanh Trì","Cầu Thị Nại","Cầu Sông Hàn","Cầu Cần Thơ","3"],
+	cau4: ["Đại Ngu là quốc hiệu của triều đại nào?","Triều Ngô","Triều Hồ","Các chúa Nguyễn","Nhà Tây Sơn","4"],
+	cau5: ["Các vua Hùng đặt quốc hiệu nước ta là gì?","Văn Lang","Âu Lạc","Vạn Xuân","Đại Việt","1"],
+	cau6: ["An Dương Vương đặt quốc hiệu nước ta là gì?","Âu Lạc","Vạn Xuân","Đại Cồ Việt","Đại Việt","2"],
+	
+	}
+
+function cautiep(){
+	//Nếu nút này là chơi lại thay vì tiếp thì khi nhấn sẽ ra câu số 1.
+	if (document.getElementById("tiep").innerHTML == "Chơi Lại") {
+		document.getElementById("cauhoi").innerHTML = "Câu hỏi 1: "  + question["cau1"][0];
+		document.getElementById("dapan1").innerHTML = "1. "+ question["cau1"][1];
+		document.getElementById("dapan2").innerHTML = "2. " +question["cau1"][2];
+		document.getElementById("dapan3").innerHTML = "3. " +question["cau1"][3];
+		document.getElementById("dapan4").innerHTML = "4. " +question["cau1"][4];
+		//Chuyển nút chơi lại thành tiếp tục
+		document.getElementById("tiep").innerHTML = "Tiếp Tục";
+		//Ẩn đi nút tiếp tục và biểu tượng đúng sai
+		document.getElementById("tiep").style.visibility = "hidden";
+			for (var x=0; x<=3; x++)
+	{
+		document.getElementsByClassName("dung")[x].style.visibility='hidden';
+	}
+	}
+	//Nếu nút là tiếp tục thì chuyển sang câu tiếp theo
+	else {
+	//sau khi chuyển sang câu hỏi mới, làm tất cả các biểu tượng đúng, sai và nút tiếp tục biến mất
+	for (var x=0; x<=3; x++)
+	{
+	
+	var x=document.getElementById("cauhoi").innerHTML.substring(8,9);
+	x=parseFloat(x);
+	x=x+1;
+	//Kiểm tra xem đáp án người chơi( biến dapan) có trùng với đáp án chuẩn k (biến dapanchuan)
+	var sosanhdapan = 0;
+	for (a=0; a<=5; a++){
+		if (dapan[a]==dapanchuan[a]){ 
+			sosanhdapan = sosanhdapan +1;
+		}
+	}
+	//Nếu đến câu 6 và đáp án chuẩn thì chuyển sang trang chúc mừng, nếu k chuyển sang câu hỏi tiếp
+	if (x==7 && sosanhdapan == 6){
+		window.location.href = "anmung.html"}
+	if (x==7 && sosanhdapan <6){
+		alert ("Random kém quá, đúng được có " + sosanhdapan +" câu, chơi lại đi thím :V");
+		document.getElementById("tiep").innerHTML = "Chơi Lại";
+	}
+		document.getElementById("cauhoi").innerHTML = "Câu hỏi " +x + ": " +question["cau"+x][0];
+		document.getElementById("dapan1").innerHTML = "1. "+ question["cau"+x][1];
+		document.getElementById("dapan2").innerHTML = "2. " +question["cau"+x][2];
+		document.getElementById("dapan3").innerHTML = "3. " +question["cau"+x][3];
+		document.getElementById("dapan4").innerHTML = "4. " +question["cau"+x][4];
+	//sau khi chuyển sang câu hỏi mới, làm tất cả các biểu tượng đúng, sai và nút tiếp tục biến mất
+	for (var x=0; x<=3; x++)
+	{
+		document.getElementsByClassName("dung")[x].style.visibility='hidden';
+	}
+	document.getElementById("tiep").style.visibility = "hidden";
+}
+}
+}
+
+var dapan=[];
+function checkDapAn(button){
+	//Hiện nút tiếp tục khi chọn đáp án
+	document.getElementById("tiep").style.visibility = "visible";
+	//lấy chữ cái ở vị trí 8,9 trong element cauhoi tức là câu hỏi hiện tại
+	var x=document.getElementById("cauhoi").innerHTML.substring(8,9);
+	x= parseFloat(x);
+	//Đáp án hiện tại = biến currentAnswer
+		var currentAnswer = button.innerHTML.substring(0,1);
+		currentAnswer = parseFloat(currentAnswer);
+	for ( var y = 0; y<=3;y++){
+	//Nếu biểu tượng đúng sai chưa hiện lên, tức là người chơi chưa chọn đáp án nào thì mới hiển thị biểu tượng đúng, sai và ghi đáp án vào biến dapan.
+		if(document.getElementsByClassName("dung")[0].style.visibility !="visible" && document.getElementsByClassName("dung")[1].style.visibility !="visible" && document.getElementsByClassName("dung")[2].style.visibility !="visible" &&document.getElementsByClassName("dung")[3].style.visibility !="visible"){
+			dapan[x-1]=currentAnswer;
+				//Trích ra chữ đầu tiên trong đáp án (A,B,C,D) và kiểm tra có trùng với biến đáp án k
+			if (button.innerHTML.substring(0,1) == question["cau" +x][5]){
+			//Nếu trùng thì cho hiện dấu đúng
+				document.getElementsByClassName("dung")[currentAnswer-1].style.backgroundImage  = "url('true.png')";
+				document.getElementsByClassName("dung")[currentAnswer-1].style.visibility='visible';
+		
+			}
+			//Không trùng thì hiện dấu sai
+			else{
+				document.getElementsByClassName("dung")[currentAnswer-1].style.backgroundImage  = "url('false.png')";
+				document.getElementsByClassName("dung")[currentAnswer-1].style.visibility='visible';
+		}
+		}
+	}
+}
+
+
+// function thay đổi thuộc tính của nút khi di chuột qua
+function chuotin(button){
+	button.style.color="green";
+	button.style.fontSize = 24;
+	button.style.background = "linear-gradient(to right, #adf5ff, #82e9ff)";
+	}	
+
+function chuotout(button){
+	button.style.color = "black";
+	button.style.fontSize = 20;
+	button.style.background  = "linear-gradient(to right, #62d7e8, #8dd0de)";
+	
+}
+
+</script>
+
+</div>
+</body>
+
