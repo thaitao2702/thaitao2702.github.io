@@ -83,47 +83,46 @@ function cautiep(){
 		document.getElementById("tiep").innerHTML = "Tiếp Tục";
 		//Ẩn đi nút tiếp tục và biểu tượng đúng sai
 		document.getElementById("tiep").style.visibility = "hidden";
-			for (var x=0; x<=3; x++)
-	{
-		document.getElementsByClassName("dung")[x].style.visibility='hidden';
-	}
+			for (var x=0; x<=3; x++){
+				document.getElementsByClassName("dung")[x].style.visibility='hidden';
+			}
 	}
 	//Nếu nút là tiếp tục thì chuyển sang câu tiếp theo
 	else {
-	//sau khi chuyển sang câu hỏi mới, làm tất cả các biểu tượng đúng, sai và nút tiếp tục biến mất
-	for (var x=0; x<=3; x++)
-	{
-	
-	var x=document.getElementById("cauhoi").innerHTML.substring(8,9);
-	x=parseFloat(x);
-	x=x+1;
-	//Kiểm tra xem đáp án người chơi( biến dapan) có trùng với đáp án chuẩn k (biến dapanchuan)
-	var sosanhdapan = 0;
-	for (a=0; a<=5; a++){
-		if (dapan[a]==dapanchuan[a]){ 
-			sosanhdapan = sosanhdapan +1;
+		//sau khi chuyển sang câu hỏi mới, làm tất cả các biểu tượng đúng, sai và nút tiếp tục biến mất
+		for (var x=0; x<=3; x++)
+			{
+		
+			var x=document.getElementById("cauhoi").innerHTML.substring(8,9);
+			x=parseFloat(x);
+			x=x+1;
+			//Kiểm tra xem đáp án người chơi( biến dapan) có trùng với đáp án chuẩn k (biến dapanchuan)
+			var sosanhdapan = 0;
+			for (a=0; a<=5; a++){
+				if (dapan[a]==dapanchuan[a]){ 
+					sosanhdapan = sosanhdapan +1;
+				}
+			}
+			//Nếu đến câu 6 và đáp án chuẩn thì chuyển sang trang chúc mừng, nếu k chuyển sang câu hỏi tiếp
+			if (x==7 && sosanhdapan == 6){
+				window.location.href = "anmung.html"
+			}
+			if (x==7 && sosanhdapan <6){
+				alert ("Random kém quá, đúng được có " + sosanhdapan +" câu, chơi lại đi thím :V");
+				document.getElementById("tiep").innerHTML = "Chơi Lại";
+			}
+				document.getElementById("cauhoi").innerHTML = "Câu hỏi " +x + ": " +question["cau"+x][0];
+				document.getElementById("dapan1").innerHTML = "1. "+ question["cau"+x][1];
+				document.getElementById("dapan2").innerHTML = "2. " +question["cau"+x][2];
+				document.getElementById("dapan3").innerHTML = "3. " +question["cau"+x][3];
+				document.getElementById("dapan4").innerHTML = "4. " +question["cau"+x][4];
+			//sau khi chuyển sang câu hỏi mới, làm tất cả các biểu tượng đúng, sai và nút tiếp tục biến mất
+			for (var x=0; x<=3; x++){
+				document.getElementsByClassName("dung")[x].style.visibility='hidden';
+			}
+			document.getElementById("tiep").style.visibility = "hidden";
 		}
 	}
-	//Nếu đến câu 6 và đáp án chuẩn thì chuyển sang trang chúc mừng, nếu k chuyển sang câu hỏi tiếp
-	if (x==7 && sosanhdapan == 6){
-		window.location.href = "anmung.html"}
-	if (x==7 && sosanhdapan <6){
-		alert ("Random kém quá, đúng được có " + sosanhdapan +" câu, chơi lại đi thím :V");
-		document.getElementById("tiep").innerHTML = "Chơi Lại";
-	}
-		document.getElementById("cauhoi").innerHTML = "Câu hỏi " +x + ": " +question["cau"+x][0];
-		document.getElementById("dapan1").innerHTML = "1. "+ question["cau"+x][1];
-		document.getElementById("dapan2").innerHTML = "2. " +question["cau"+x][2];
-		document.getElementById("dapan3").innerHTML = "3. " +question["cau"+x][3];
-		document.getElementById("dapan4").innerHTML = "4. " +question["cau"+x][4];
-	//sau khi chuyển sang câu hỏi mới, làm tất cả các biểu tượng đúng, sai và nút tiếp tục biến mất
-	for (var x=0; x<=3; x++)
-	{
-		document.getElementsByClassName("dung")[x].style.visibility='hidden';
-	}
-	document.getElementById("tiep").style.visibility = "hidden";
-}
-}
 }
 
 var dapan=[];
