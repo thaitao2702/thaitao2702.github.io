@@ -64,7 +64,7 @@ h5 {
 	
 }
 
-#dong2 button, #dong3 button,#dong4 button,#dong5 #khong, #dong5 #cham, #dong5 #congtru, #chia{
+#dong2 button, #dong3 button,#dong4 button,#dong5 #khong, #dong5 #cham, #dong5, #chia{
 	height:95px;
 	width:112px;
 	background-color:#5a5a5a;
@@ -91,6 +91,16 @@ h5 {
 	width:100%;
 	height:110px;
 }	
+
+#congtru {
+	height:95px;
+	width:112px;
+	background-color:#5a5a5a;
+	border-radius:10%;
+	margin:2px;
+	color:white;
+	font-size:20;
+}
 	
 	
 	
