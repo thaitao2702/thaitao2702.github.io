@@ -1,0 +1,135 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<div id = "wrapper">
+
+<div id ="main">
+<div id="top">
+<h5>CALCULATOR</h5>
+</div>
+
+<div id="screen">
+<input type ="text" id = "x"/>
+</div>
+
+<div id="chucnang">
+
+<div class = "dong" id="dong1">
+<button id="can" class = "nhom1" onclick="can()"> Sqrt </button>
+<button id="binhphuong" class = "nhom1" onclick= "binhphuong()">^2</button>
+<button id="reset" class ="nhom1" onclick="reset()">C</button>
+<button id= "chia" onclick="chia()">:</button>
+</div>
+
+<div class = "dong" id="dong2">
+<button id="mot" onclick="press(this)">1</button>
+<button id="hai" onclick="press(this)">2</button>
+<button id="ba" onclick="press(this)">3</button>
+<button id= "nhan" onclick="nhan()">X</button>
+</div>
+
+<div class = "dong" id="dong3">
+<button id="bon" onclick="press(this)">4</button>
+<button id="nam" onclick="press(this)">5</button>
+<button id="sau" onclick="press(this)">6</button>
+<button id= "tru" onclick="press(this)">-</button>
+</div>
+
+<div class = "dong" id="dong4">
+<button id="bay" onclick="press(this)">7</button>
+<button id="tam" onclick="press(this)">8</button>
+<button id="chin" onclick="press(this)">9</button>
+<button id= "cong" onclick="press(this)">+</button>
+</div>
+
+<div class = "dong" id="dong5">
+<button id="khong" onclick="press(this)">0</button>
+<button id="cham" onclick="press(this)">.</button>
+<button id="congtru" onclick="congtru()">THEME</button>
+<button id= "bang" onclick="bang()">=</button>
+</div>
+
+
+</div>
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+
+var pheptinh='';
+// function reset ô nhập liệu
+	function reset(){
+		$('#x').val('');
+		pheptinh = '';
+		
+}
+
+// function nhập dữ liệu khi nhấn các nút
+	function press(button) {
+		$('#x').val($('#x').val()+$(button).html());
+		pheptinh = pheptinh+$(button).html();
+		
+	}
+
+// function để hiển thị dấu * thay vì X khi nhấn nút X
+	function nhan(){
+		pheptinh = $('#x').val()+"*";
+		$('#x').val($('#x').val()+"X");
+		
+	}
+	
+	function chia(){
+		pheptinh = $('#x').val()+ "/";
+		$('#x').val($('#x').val()+":");
+	}
+
+// function thực hiện phép tính và đưa giá trị lên màn hinh
+	function bang(){
+		var a =  eval(pheptinh);
+		$('#x').val(a);
+}
+
+// function đổi dấu 
+	var theme = 1;
+	function congtru(){
+	if (theme == 1){
+		$(':button').css('background-color', '#009688');
+		$(':button').css('color','black');
+		$('.nhom1').css('background-color', '#bdbdbd');
+		$('#bang').css('background-color','#3F51B5');
+		$('#x').css('color','white');
+		$('#x').css('background-color','black');
+		theme +=1;
+	}	
+		else {
+			$(':button').css('color','white');
+			$(':button').css('background-color','#5a5a5a');
+			$('.nhom1').css('background-color', '#5f5faf');
+			$('#bang').css('background-color','#d4a144');
+			$('#x').css('color','black');
+			$('#x').css('background-color','#70cef1');
+			theme = 1;
+		}	
+	}
+
+// function thực hiện phép bình phương số hiện tại trong ô nhập liệu	
+	function binhphuong(){
+		$('#x').val(parseFloat($('#x').val())*parseFloat($('#x').val()));
+	}
+
+// function thực hiện phép căn số hiện tại trong ô nhập liệu	
+	function can(){
+		$('#x').val(Math.sqrt(parseFloat($('#x').val())));
+		
+	}
+</script>
+
+</body>
+
+</html>
