@@ -51,7 +51,7 @@
 	<div id = "winlosewrapper1">
 		<div id = "losetextwrapper">
 			<div id = "lose">
-				<img id ="losetext" src = 'lose.png'></img>
+				<img id ="losetext" src = 'Lose.png'></img>
 			</div>
 			<div id= "retrywrapper">
 				<div id = "retry" onclick = "resetGame()">
@@ -125,10 +125,11 @@
     return array;
 }
 
+//bắt đầu ct hiện 18 lá bài và không cho nhấn vào các lá bài
 $(hienBai())
 $('#main').children('img').css('pointer-events', 'none');
 
-
+//hàm hiện 18 quân bài
 function hienBai(){
 	for (var x= 1; x<=18; x++)
 		{
@@ -198,7 +199,7 @@ function startnormal(){
 	},4000);
 }
 
-// chạy thanh đếm thời gian 
+// chạy thanh đếm thời gian, nếu thanh đếm thời gian về 0 hiển thị màn hình thua cuộc và nút retry
 function chayprogressbar(x) {
 	thoigianconlai = x;
 	var run = setInterval (function () {
@@ -226,6 +227,8 @@ function chayprogressbar(x) {
 		}},100);
 }
 
+
+//function start game cho phép lật các lá và đếm số lần chọn đúng, nếu đúng 9 lần sẽ hiện màn hình ăn mừng
 function startgame() {
 	$(function (){
 		$('#main').children('img').css('pointer-events', 'auto')
