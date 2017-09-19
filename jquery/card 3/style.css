@@ -1,0 +1,303 @@
+body {
+	background-image:url("background.jpg");
+	background-size:cover;
+	background-repeat:no-repeat;
+	
+}
+
+
+
+#main div {
+	width:16.6%;
+
+	float:left;
+	padding:auto;
+	position:relative;
+	
+}
+
+#main img {
+	width:86%;
+	margin-top:10%;
+}
+
+#main {
+	
+	width:55%;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#main img:hover {
+	-webkit-box-shadow: 0px 0px 25px 2px rgba(255,255,255,1);
+	-moz-box-shadow: 0px 0px 25px 2px rgba(255,255,255,1);
+	box-shadow: 0px 0px 25px 2px rgba(255,255,255,1);
+}
+
+.mattruoc {
+	position:relative;
+	backface-visibility:hidden;
+	transform:rotateY(180deg);
+	transition: transform 0.5s;
+
+}
+
+.matsau {
+	position:absolute;
+	top:0;
+	left:0;
+	backface-visibility:hidden;
+	transform: rotateY(0deg);
+	transition:transform 0.5s;
+
+}
+
+.flip .mattruoc {
+	transform:rotateY(0deg);
+	transition: transform 0.5s;
+	backface-visibility:hidden;
+}
+
+.flip .matsau {
+	transform:rotateY(180deg);
+	transition: transform 0.5s;
+	backface-visibility:hidden;
+}
+
+/* start menu */
+#start {
+	text-align:center;
+	width:400px;
+	height:200px;
+	position: absolute;
+	z-index:100;
+	margin: 12% auto;
+	background-image:url('startbackground.png');
+	background-size:cover;
+}
+
+#startwrapper {
+	margin:auto;
+	width:400px;
+}
+	
+#starttitle {
+	width:400px;
+	height:100px;
+}
+	
+button {
+	font-size:16px;
+	line-height:40px;
+	border-radius:2px;
+	width:110px;
+	height:40px;
+	color:white;
+	box-shadow(0 2px 5px 0 rgba(0,0,0,.19), 0 2px 2px 0 rgba(0,0,0,.13));
+}
+
+#hard {
+	background-color:#0043b5;
+}
+
+#normal {
+	background-color:#b10000;
+}
+
+/* win */
+#winlosewrapper1{
+	position:absolute;
+	width:100%;
+	height:50%;
+	z-index:100;
+	display:none;
+	opacity:0;
+}
+
+#retrywrapper {
+	width:40%;
+	margin:auto;
+}
+
+#retry:hover {
+	background-color:white;
+}
+
+#retry {
+	border-radius:10px;
+}
+
+#retrytext {
+	width:100%;
+}
+
+#losetextwrapper{
+	width:30%;
+	margin:15% auto;
+}
+
+#losetext {
+	
+	width:100%;
+	
+}
+
+
+#winlosewrapper2{
+	position:absolute;
+	width:100%;
+	height:50%;
+	z-index:100;
+	display:none;
+	opacity:0;
+}
+
+#winwrapper{
+	width:800px;
+	z-index:10001;
+	margin:auto;
+	
+}
+
+#wintextdiv{
+	width:100%;
+	margin:auto;
+}
+
+#wintext{
+	width:100%;
+}
+
+
+
+
+progress::-webkit-progress-bar {
+    background: transparent;
+}  
+progress::-webkit-progress-value {  
+  border-radius: 12px;
+  background: #FFF;
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4), 0 2px 5px 0px rgba(0,0,0,0.3); 
+} 
+
+progress {
+	color:red;
+	height: 18px;
+	margin-top: 30px ;
+	display: block;
+	/* Important Thing */
+	-webkit-appearance: none;
+	border: none;
+	width:100%;
+}
+
+progress::-webkit-progress-bar {
+	background: black;
+	border-radius: 50px;
+	padding: 2px;
+	box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.2);
+}
+
+#progress {
+	opacity:0;
+	height:50px;
+	width:60%;
+	margin:auto;
+}
+
+
+@-webkit-keyframes animate-stripes {
+   100% { background-position: -100px 0px; }
+}
+
+@keyframes animate-stripes {
+   100% { background-position: -100px 0px; }
+}
+
+#wrapper {
+	background: none;
+	font-family: Androgyne;
+	background-image: url('http://www.wearewebstars.dk/codepen/img/s1.png'), url('http://www.wearewebstars.dk/codepen/img//s2.png'), url('http://www.wearewebstars.dk/codepen/img//s3.png');
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index:1;
+	-webkit-animation: snow 10s linear infinite;
+	-moz-animation: snow 10s linear infinite;
+	-ms-animation: snow 10s linear infinite;
+	animation: snow 10s linear infinite;
+}
+@keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}	
+
+
+#winimage {
+	background-image: url('winbackground.jpg');
+	width:100%;
+	height:100%;
+	background-size:cover;
+	position:absolute;
+	opacity:0;
+	top:0px;
+	left:0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

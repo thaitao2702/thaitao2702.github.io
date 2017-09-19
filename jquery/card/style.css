@@ -1,0 +1,51 @@
+body {
+	background-image:url("background.jpg");
+	
+}
+
+
+
+#main div {
+	width:20%;
+
+	float:left;
+	padding:auto;
+	position:relative;
+	
+}
+
+img {
+	margin-top:15%;
+	width:90%;
+	
+	
+	
+}
+
+#main {
+	margin-top:80px;
+	width:64%;
+	
+	margin-left:auto;
+	margin-right:auto;
+}
+
+#main img:hover {
+	-webkit-box-shadow: 0px 0px 25px 2px rgba(255,255,255,1);
+	-moz-box-shadow: 0px 0px 25px 2px rgba(255,255,255,1);
+	box-shadow: 0px 0px 25px 2px rgba(255,255,255,1);
+}
+
+.mattruoc {
+	position:relative;
+	backface-visibility:hidden;
+	transform:rotateY(180deg);
+}
+
+.matsau {
+	position:absolute;
+	top:0;
+	left:0;
+	
+	backface-visibility:hidden;
+}

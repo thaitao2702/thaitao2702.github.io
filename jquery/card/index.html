@@ -1,0 +1,101 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<div id = "wrapper">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+<div id = "main">
+
+<div id = "anh1" class = "anh">
+</div>
+
+<div id = "anh2" class = "anh">
+</div>
+
+<div id = "anh3" class = "anh">
+</div>
+
+<div id = "anh4" class = "anh">
+</div>
+
+<div id = "anh5" class = "anh">
+</div>
+
+<div id = "anh6" class = "anh">
+</div>
+
+<div id = "anh7" class = "anh">
+</div>
+
+<div id = "anh8" class = "anh">
+</div>
+
+<div id = "anh9" class = "anh">
+</div>
+
+<div id = "anh10" class = "anh">
+</div>
+
+</div>
+</div>
+<script>
+ 
+ var a = ["1","2","3","4","5","6","7","8","9","10"];
+ var chuoi5so = [];
+ //thay đổi thứ tự ngẫu nhiên mảng a
+ shuffle(a);
+ //lấy ra 5 số đầu tiên từ chuỗi 10 số đã shuffle
+	for  (x=0; x<5; x++){
+		chuoi5so.push(a[x]);
+	}
+// Nhân đôi chuỗi 5 số lên sau đó sắp xếp ngẫu nhiên và gán vào biến random
+	var random = shuffle (nhanDoiMang(chuoi5so));
+		
+// Hàm nhân đôi mảng
+ function nhanDoiMang(array) {
+	var mang = [];
+	for (x= 0; x<array.length; x ++){
+		
+		mang.push(array[x]);
+		mang.push(array[x]);
+		}
+	return mang;
+}
+	
+// Hàm sắp xếp ngẫu nhiên lại mảng		
+ function shuffle(array){
+	var m= array.length,t,i;
+	while (m){
+	i = Math.floor(Math.random()*m--);
+	 t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+    return array;
+}
+
+// Hiển thị ra 5 cặp quân bài
+for (var x= 1; x<=10; x++){
+	$('<img class = "mattruoc"></img>').appendTo('#anh'+x);
+	$('<img class= "matsau" src = "matsau3.jpg"></img>').appendTo('#anh'+x);
+	$('#anh'+x).children('.mattruoc').attr('src', random[x-1]+'.jpg');
+	$('#main').children('div').on("click", function (){
+		$(this).children('.mattruoc').css('transform', 'rotateY(0deg');
+		$(this).children('.mattruoc').css('transition', '1s');
+		$(this).children('.mattruoc').css('backface-visibility', 'hidden');
+		$(this).children('.matsau').css('transform', 'rotateY(180deg');
+		$(this).children('.matsau').css('transition', '1s');
+		$(this).children('.matsau').css('backface-visibility', 'hidden');
+		});
+} 
+</script>
+
+</body>
+
+</html>

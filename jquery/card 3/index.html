@@ -1,0 +1,285 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<div id = "winimage"></div>
+<div id = "wrapper">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<audio id="normal-bg">
+		<source src="normal-bg.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="hard-bg">
+		<source src="hard-bg.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="horn">
+		<source src="horn.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="latbai">
+		<source src="latbai.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="dung">
+		<source src="sword.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="sai">
+		<source src="latsai.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="lose">
+		<source src="lose.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="win">
+		<source src="victory.mp3" type="audio/mpeg">
+	</audio>
+	
+	<div id = 'progress'>
+			<progress value="100" max="100">
+			</progress>
+		</div>
+	
+	
+	<div id = "winlosewrapper1">
+		<div id = "losetextwrapper">
+			<div id = "lose">
+				<img id ="losetext" src = 'lose.png'></img>
+			</div>
+			<div id= "retrywrapper">
+				<div id = "retry" onclick = "resetGame()">
+					<img id = "retrytext" src = 'retry.png'></img>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id ="winlosewrapper2">
+		<div id = "winwrapper">
+			<div id = "wintextdiv">
+				<img id ="wintext" src = 'win.png'></img>
+			</div>
+		</div>	
+	</div>
+	
+	
+	<div id = "startwrapper">
+		
+		<div id = "start">
+			<h1>GOT CARD GAME</h1>
+			<h2>Chose play mode</h2>
+			<button id="hard" onclick = "starthard()">HARD</button>
+			<button id="normal" onclick = "startnormal()">NORMAL</button>
+		</div>
+	</div>
+	
+	
+	<div id = "main">
+		
+	</div>
+	
+</div>
+<script>
+ var soladalat=0;
+ var current = null;
+ var a = ["1","2","3","4","5","6","7","8","9"];
+ var chuoi5so = [];
+ var thoigianconlai ;
+ var random=[];
+ var html = '';
+ var sodapandung = 0;
+
+
+  //thay đổi thứ tự ngẫu nhiên mảng a
+ shuffle(a);
+ random = shuffle(nhanDoiMang(shuffle(a)));
+ 
+ function nhanDoiMang(array) 
+	{
+		var mang = [];
+		for (x= 0; x<array.length; x ++){
+			mang.push(array[x]);
+			mang.push(array[x]);
+		}
+	return mang;
+}
+	
+
+		
+ function shuffle(array)
+	{
+		var m= array.length,t,i;
+		while (m){
+		i = Math.floor(Math.random()*m--);
+		t = array[m];
+		array[m] = array[i];
+		array[i] = t;
+	}
+    return array;
+}
+
+$(hienBai())
+$('#main').children('img').css('pointer-events', 'none');
+
+
+function hienBai(){
+	for (var x= 1; x<=18; x++)
+		{
+			html += '<div id = "anh'+ x +'" class = "anh"><img imageID='+random[x-1]+' class = "mattruoc" src = "'+random[x-1]+'.jpg"></img> <img class = "matsau" src = "matsau3.jpg"></img> </div>'
+		}
+	$('#main').append(html);
+	html = '';
+}
+
+//Hàm reset game:
+function resetGame(){
+	$('#main').html('');
+	hienBai();
+	$('#hard').css('visibility','visible');
+	$('#normal').css('visibility','visible');
+	$('#startwrapper').css('display','block');
+	$('#winlosewrapper1').css('display','none');
+	$('#winlosewrapper1').css('opacity','0');
+	$('#start').children('h1').html("GOT CARDS GAME");
+	$('#start').children('h2').html("Choose play mode");
+	$('#start').children('h1').css({'margin-top':'18px'});
+	$('#progress').css('opacity','0');
+}
+	
+
+
+// Đếm ngược 4s trước khi bắt đầu
+function startcoutdown() {
+	document.getElementById('horn').play()
+	var demnguoc = 4;
+	var x = setInterval (function () {
+		demnguoc = demnguoc-1;;
+		if (demnguoc ==0){ clearInterval(x);}
+		$('#start').children('h2').html(demnguoc)
+	},1000);		
+	$('#start').children('h1').html("GAME START IN")
+	$('#start').children('h2').html("4")
+}		
+
+//Chạy chế độ khó
+function starthard (){
+	startcoutdown();
+	$('#start').children('h1').css({'margin-top':'50px'});
+	$('#hard').css('visibility','hidden');
+	$('#normal').css('visibility','hidden');
+	setTimeout(function (){
+		document.getElementById('hard-bg').play();
+		$('#progress').css('opacity','1');
+		$('#startwrapper').css('display','none');
+		chayprogressbar(39);
+		startgame();
+	},4000);
+}
+
+//Chạy chế độ normal
+function startnormal(){
+	startcoutdown();
+	$('#start').children('h1').css({'margin-top':'50px'});
+	$('#hard').css('visibility','hidden');
+	$('#normal').css('visibility','hidden');
+	setTimeout(function (){
+		document.getElementById('normal-bg').play();
+		$('#progress').css('opacity','1');
+		$('#startwrapper').css('display','none');
+		chayprogressbar(54);
+		startgame();
+	},4000);
+}
+
+// chạy thanh đếm thời gian 
+function chayprogressbar(x) {
+	thoigianconlai = x;
+	var run = setInterval (function () {
+		thoigianconlai = thoigianconlai - 0.1;
+		$('progress').val(thoigianconlai/x*100)
+		if (sodapandung ==9){
+			clearInterval(run);
+		}
+		if (thoigianconlai < 0){
+			clearInterval(run);
+			document.getElementById('lose').play();
+			document.getElementById('hard-bg').pause();
+			document.getElementById('hard-bg').load();
+			document.getElementById('normal-bg').pause();
+			document.getElementById('normal-bg').load();
+			$('#winlosewrapper1').css('display','block');
+			$('#winlosewrapper1').animate({opacity:1},3000);
+			//Khong cho click vào nút retry cho đến khi hiện xong
+			$('#retry').css('pointer-events', 'none');
+			sodapandung = 0;
+			setTimeout( function ()
+				{
+					$('#retry').css('pointer-events', 'auto');
+			},2000);
+		}},100);
+}
+
+function startgame() {
+	$(function (){
+		$('#main').children('img').css('pointer-events', 'auto')
+		$('#main').children('div').on("click", function (){
+			var dangChon = $(this)
+			if (!$(this).hasClass('flip') && soladalat <2){
+				document.getElementById('latbai').play();
+				$(this).toggleClass("flip");
+				if (!current) {
+					soladalat = 1;
+					current = $(this);
+				}
+				else {
+					soladalat = 2;
+					if ($(current).children('.mattruoc').attr('imageID') == $(this).children('.mattruoc').attr('imageID')){
+						document.getElementById('dung').load()
+						document.getElementById('dung').play();
+						sodapandung++;
+						setTimeout(	function () 
+							{
+								$(current).children('img').css('opacity','0');
+								$(current).children('img').css('transition', '0.5s');
+								$(dangChon).children('img').css('opacity','0');
+								$(dangChon).children('img').css('transition','0.5s');
+								current = null;
+								setTimeout( function () {soladalat = 0;},500)
+							},500);
+						if (sodapandung == 9) {
+							$('#winlosewrapper2').css('display','block');
+							$('#winlosewrapper2').animate({opacity:1},4000)
+							document.getElementById('hard-bg').pause();
+							document.getElementById('normal-bg').pause();
+							document.getElementById('win').play();
+							$('#winimage').animate({opacity:1},4000);
+						}	
+					}
+					else {	
+						setTimeout( function (){
+							$(current).toggleClass("flip");
+							$(dangChon).toggleClass("flip");
+							document.getElementById('sai').play();
+							current = null;
+							setTimeout( function () {soladalat = 0;},500);
+						},500)
+					}
+				}
+			}
+		})
+	});
+}
+
+	
+</script>
+
+</body>
+
+</html>

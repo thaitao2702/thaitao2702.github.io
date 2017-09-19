@@ -1,0 +1,160 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<div id = "wrapper">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<audio id="latbai">
+		<source src="latbai.mp3" type="audio/mpeg">
+	</audio>
+	
+	<audio id="dung">
+		<source src="sword.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="sai">
+		<source src="latsai.mp3" type="audio/mpeg">
+	</audio>
+
+	<div id = "main">
+
+		<div id = "anh1" class = "anh">
+		</div>
+
+		<div id = "anh2" class = "anh">
+		</div>
+
+		<div id = "anh3" class = "anh">
+		</div>
+
+		<div id = "anh4" class = "anh">
+		</div>
+
+		<div id = "anh5" class = "anh">
+		</div>
+
+		<div id = "anh6" class = "anh">
+		</div>
+
+		<div id = "anh7" class = "anh">
+		</div>
+
+		<div id = "anh8" class = "anh">
+		</div>
+
+		<div id = "anh9" class = "anh">
+		</div>
+
+		<div id = "anh10" class = "anh">
+		</div>
+
+	</div>
+</progress>
+</div>
+<script>
+ var soladalat=0;
+ var current = null;
+ var a = ["1","2","3","4","5","6","7","8","9","10"];
+ var chuoi5so = [];
+ var thoigianconlai = 10;
+ 
+
+ 
+ 
+ 
+ //thay đổi thứ tự ngẫu nhiên mảng a
+ shuffle(a);
+ //lấy ra 5 số đầu tiên từ chuỗi 10 số đã shuffle
+	for  (x=0; x<5; x++){
+		chuoi5so.push(a[x]);
+	}
+// Nhân đôi chuỗi 5 số lên
+	nhanDoiMang(chuoi5so);
+		
+ var random=[];
+ function nhanDoiMang(array) 
+	{
+		var mang = [];
+		for (x= 0; x<array.length; x ++){
+			mang.push(array[x]);
+			mang.push(array[x]);
+		}
+	return mang;
+}
+	
+	var random = shuffle (nhanDoiMang(chuoi5so));
+		
+ function shuffle(array)
+	{
+		var m= array.length,t,i;
+		while (m){
+		i = Math.floor(Math.random()*m--);
+		t = array[m];
+		array[m] = array[i];
+		array[i] = t;
+	}
+    return array;
+}
+
+for (var x= 1; x<=10; x++)
+	{
+		$('<img imageID =' + random[x-1] + '  class = "mattruoc"></img>').appendTo('#anh'+x);
+		$('<img class= "matsau" src = "matsau3.jpg"></img>').appendTo('#anh'+x);
+		$('#anh'+x).children('.mattruoc').attr('src', random[x-1]+'.jpg');
+	}
+$(function (){
+
+	$('#main').children('div').on("click", function (){
+		var dangChon = $(this)
+		if (!$(this).hasClass('flip') && soladalat <2){
+			document.getElementById('latbai').load();
+			document.getElementById('latbai').play();
+			$(this).toggleClass("flip");
+			if (!current) {
+				soladalat = 1;
+				console.log(soladalat);
+				current = $(this);
+			}
+			else {
+				soladalat = 2;
+				console.log(soladalat);
+				if ($(current).children('.mattruoc').attr('imageID') == $(this).children('.mattruoc').attr('imageID')){
+					document.getElementById('dung').load();
+					document.getElementById('dung').play();
+					setTimeout(	function () 
+						{
+							$(current).children('img').css('opacity','0');
+							$(current).children('img').css('transition', '0.5s');
+							$(dangChon).children('img').css('opacity','0');
+							$(dangChon).children('img').css('transition','0.5s');
+							current = null;
+							setTimeout( function () {soladalat = 0;},500)
+						},500);
+					console.log('giong nhau');
+					
+				}
+				else {
+					setTimeout( function (){
+						document.getElementById('sai').load();
+						document.getElementById('sai').play();
+						$(current).toggleClass("flip");
+						$(dangChon).toggleClass("flip");
+						current = null;
+						setTimeout( function () {soladalat = 0;},500);
+					},500)
+					console.log('khac nhau');
+				}
+			}
+		}
+	})
+});
+
+</script>
+
+</body>
+
+</html>
