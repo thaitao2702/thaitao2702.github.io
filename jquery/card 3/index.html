@@ -6,7 +6,7 @@
 </head>
 
 <body>
-
+<div id = "blackbackground"></div>
 <div id = "winimage"></div>
 <div id = "wrapper">
 
@@ -158,6 +158,8 @@ function resetGame(){
 
 // Đếm ngược 4s trước khi bắt đầu
 function startcoutdown() {
+	//Cho màn hình sáng trở lại:
+	$('#blackbackground').css('display','none');
 	document.getElementById('horn').play()
 	var demnguoc = 4;
 	var x = setInterval (function () {
@@ -224,6 +226,7 @@ function chayprogressbar(x) {
 			clearInterval(run);
 		}
 		if (thoigianconlai < 0){
+			$('#blackbackground').css('display','block');
 			$('#main').children('div').children('img').on("mouseover", function (){
 				$(this).removeClass('imghover');
 			})	
