@@ -269,6 +269,7 @@ function startgame() {
 						setTimeout( function (){
 							$(current).toggleClass("flip");
 							$(dangChon).toggleClass("flip");
+							document.getElementById('sai').load()
 							document.getElementById('sai').play();
 							current = null;
 							setTimeout( function () {soladalat = 0;},500);
