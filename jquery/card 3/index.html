@@ -171,6 +171,7 @@ function startcoutdown() {
 
 //Chạy chế độ khó
 function starthard (){
+	//Đếm ngược
 	startcoutdown();
 	$('#start').children('h1').css({'margin-top':'50px'});
 	$('#hard').css('visibility','hidden');
@@ -181,11 +182,18 @@ function starthard (){
 		$('#startwrapper').css('display','none');
 		chayprogressbar(39);
 		startgame();
+		$('#main').children('div').children('img').on("mouseover", function (){
+			$(this).addClass('imghover');
+		})
+			$('#main').children('div').children('img').on("mouseout", function (){
+		$(this).removeClass('imghover');
+		})
 	},4000);
 }
 
 //Chạy chế độ normal
 function startnormal(){
+	//đếm ngược
 	startcoutdown();
 	$('#start').children('h1').css({'margin-top':'50px'});
 	$('#hard').css('visibility','hidden');
@@ -196,6 +204,13 @@ function startnormal(){
 		$('#startwrapper').css('display','none');
 		chayprogressbar(54);
 		startgame();
+		//Bật hover quân bài
+		$('#main').children('div').children('img').on("mouseover", function (){
+			$(this).addClass('imghover');
+		})
+			$('#main').children('div').children('img').on("mouseout", function (){
+		$(this).removeClass('imghover');
+		})
 	},4000);
 }
 
@@ -209,6 +224,9 @@ function chayprogressbar(x) {
 			clearInterval(run);
 		}
 		if (thoigianconlai < 0){
+			$('#main').children('div').children('img').on("mouseover", function (){
+				$(this).removeClass('imghover');
+			})	
 			clearInterval(run);
 			document.getElementById('lose').play();
 			document.getElementById('hard-bg').pause();
@@ -217,6 +235,7 @@ function chayprogressbar(x) {
 			document.getElementById('normal-bg').load();
 			$('#winlosewrapper1').css('display','block');
 			$('#winlosewrapper1').animate({opacity:1},3000);
+			$('#main').children('img').css('pointer-events', 'none');
 			//Khong cho click vào nút retry cho đến khi hiện xong
 			$('#retry').css('pointer-events', 'none');
 			sodapandung = 0;
