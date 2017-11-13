@@ -1521,10 +1521,10 @@ form span::before{
     width: 80%;    
 }
 
-.product h2{
+.info .product h2{
     color: white;
     margin: 0;
-    background: black;
+    background: #ffcb05;
     
 }
 
@@ -1538,7 +1538,69 @@ form span::before{
 
 .product h3 a {
     text-decoration: none;
+    color: black;
 }
+
+/*table*/
+.table-wrapper{
+    width: 50%;
+    margin:auto;
+}
+
+table{
+    width: 100%;
+    border-collapse:collapse;
+    color: #89949a
+}
+
+td{
+    width:50%;
+    padding:10px 10px;
+    text-align:left;
+    border-bottom: 1px solid lightblue;
+}
+
+tr:hover{ 
+    background: black;
+    color: white;    
+}
+
+td:nth-child(even){
+   
+    
+}
+
+td:nth-child(odd){
+    font-weight: 900;
+}
+
+/*end table */
+
+/*feature */
+
+.info-feature{
+    width: 100%;
+
+}
+
+.sub-feature img{
+    width: 100%;
+}
+
+.sub-feature{
+    position: relative;
+}
+
+.sub-feature h1{
+    color: white;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    
+}
+
+/*end feature */
+
 
 /* sản phẩm mới */
 .product .newproduct-logo{
@@ -1821,6 +1883,12 @@ footer h3{
     padding: 100px 50px 100px 50px;
 }
 
+.main-info hr{
+    text-align: left;
+    width: 80%;
+    display:inline-block;
+}
+
 .main-info h1{
     letter-spacing: 0.1em;
     font-size:36px;
@@ -1842,7 +1910,7 @@ footer h3{
     font-size:58px;
     color: #f0cf1e;
     margin: 0;
-    margin: 20px 0;
+    
 }
 
 .main-info .stock{
@@ -1851,6 +1919,7 @@ footer h3{
     letter-spacing: 0.05em;
     color: crimson;
     text-transform: uppercase;
+    margin-top:60px;
 }
 
 .buy-button{
@@ -1961,11 +2030,10 @@ footer h3{
 }
 
 .info{
-    
-    text-align: center;
-    height:1200px;
+    text-align: center;    
     background: lightgray;
     border-bottom: 1px solid black;
+    padding: 50px 0 150px 0;
 }
 
 .info:nth-child(odd){
@@ -1976,7 +2044,7 @@ footer h3{
     background: black;
 }
 
-.info H2{   
+.info>H2{   
     font-size:50px;
     letter-spacing: 0.1em;
     text-align: center;
@@ -1989,7 +2057,7 @@ footer h3{
     color: black;
 }
 
-.info:nth-child(even) h2{
+.info:nth-child(even)>h2{
     color: white;
 }
 
@@ -2001,11 +2069,11 @@ footer h3{
     top: 300px;    
     position: absolute;
     left:10%;
-    width: 100px;
+    width: 140px;
 }
 
 .thumb{
-    width: 140px;    
+    width: 100%;    
     padding: 20px 10px;
 }
 
