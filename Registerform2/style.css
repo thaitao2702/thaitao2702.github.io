@@ -1,0 +1,160 @@
+body {
+	background: rgba(146,170,221,1);
+background: -moz-linear-gradient(top, rgba(146,170,221,1) 0%, rgba(117,146,209,1) 41%, rgba(74,111,191,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(146,170,221,1)), color-stop(41%, rgba(117,146,209,1)), color-stop(100%, rgba(74,111,191,1)));
+background: -webkit-linear-gradient(top, rgba(146,170,221,1) 0%, rgba(117,146,209,1) 41%, rgba(74,111,191,1) 100%);
+background: -o-linear-gradient(top, rgba(146,170,221,1) 0%, rgba(117,146,209,1) 41%, rgba(74,111,191,1) 100%);
+background: -ms-linear-gradient(top, rgba(146,170,221,1) 0%, rgba(117,146,209,1) 41%, rgba(74,111,191,1) 100%);
+background: linear-gradient(to bottom, rgba(146,170,221,1) 0%, rgba(117,146,209,1) 41%, rgba(74,111,191,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#92aadd', endColorstr='#4a6fbf', GradientType=0 );
+}
+
+input {
+	margin-top:10px;
+}
+
+select {
+	margin-top:10px;
+}
+
+#wrapper {
+	width:400px;
+	height:550px;
+	border-radius: 5px 5px 0 0;
+	margin:10% auto;
+	background-color:white;
+	
+}
+
+#titlewrapper {
+	   border-radius: 5px 5px 0 0;
+	width:100%;
+	height:100px;
+	background-color:grey;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ba0306+0,a50306+44,820002+100 */
+background: rgb(186,3,6); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(186,3,6,1) 0%, rgba(165,3,6,1) 44%, rgba(130,0,2,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(186,3,6,1) 0%,rgba(165,3,6,1) 44%,rgba(130,0,2,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(186,3,6,1) 0%,rgba(165,3,6,1) 44%,rgba(130,0,2,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ba0306', endColorstr='#820002',GradientType=0 ); /* IE6-9 */
+}
+
+h1 {
+	font-size:34;
+	text-align:center;
+	line-height:100px;
+	color:white;
+}
+
+input[type="text"]{
+	font-size:16;
+	width:360px;
+	height:40px;
+	border-radius:5px;
+	border:1px solid grey;
+	text-indent:5px;
+}
+input[type="password"]{
+	font-size:16;
+	width:360px;
+	height:40px;
+	border-radius:5px;
+	border:1px solid grey;
+	text-indent:5px;
+}
+
+input[type="email"]{
+	font-size:16;
+	width:360px;
+	height:40px;
+	border-radius:5px;
+	border:1px solid grey;
+	text-indent:5px;
+}
+
+select{
+	font-size:16;
+	width:117px;
+	height:30px;
+	border-radius:5px;
+	border:1px solid grey;
+	text-indent:5px;
+}
+input[type="submit"]{
+	background-color: #a50306;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+	width:300px;
+	height:60px;
+	border-radius:5px;
+	margin-top:15px;
+}
+
+input[type="submit"]:hover {
+	opacity:0.8;
+}
+
+#submitwrapper {
+	width:300px;
+	margin:auto;
+}
+
+input[type="radio"]{
+	margin-top:20px;
+}
+
+label {
+	font-size:20;
+	
+}
+
+form {
+	padding:20px;
+	padding-top:15px;
+}
+
+h2 {
+	margin:6px;
+	color:white;
+}
+
+#thongtin {
+	width:500px;
+	margin:auto;
+}
+
+#chucmung {
+	color:#9e2222;
+	font-size:28;
+	text-align:center;
+	font-weight:bold;
+	margin-bottom:30px;
+}
+
+.sai::-webkit-input-placeholder {
+    color: red;
+}
+
+
+.dung::-webkit-input-placeholder {
+    color: grey;
+}
+
+.classbox {
+	color:red;
+}
+
+
+span {
+	font-size:18;
+	color:red;
+}
+
+.dongdau{
+	color:blue;
+}

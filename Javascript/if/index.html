@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	
+
+	<script>
+
+	
+	
+	//Bài 1
+	//Nhập lệnh soSanh(a,b) để so sánh 2 số a và b
+		function soSanh(a,b) 
+			{
+				if (typeof(a)=="number"&& typeof(b)=="number"){
+					if (a>b) alert(a + " Là số lớn nhất")
+					alert (b + " Là số lớn nhất")
+				}
+			}
+			
+	//Bài 2
+	//Nhập lệnh giaiThua(a) để tìm giai thừa của số a
+		var y=1
+		function giaiThua(a)
+			{
+				if (a%1 == 0){
+					for (var x=1; x<= a; x++){
+						y=y*x
+					}
+				alert ("Giai thừa của " +a+" là " + y)
+				}
+			}
+	
+	//Bài 3
+	//Nhập lệnh testMang(a) với a là mảng, kết quả trả về là mảng mới b chứa các số chẵn trong mảng a với giá trị sắp xếp giảm dần
+		var b= []
+		function testMang(a)
+			{	
+				b= [];
+				for (var x=0; x< a.length; x++){
+					if (a[x]%2 == 0) {
+						
+						b.push(a[x]);
+					}
+				}
+			}
+			
+	//Bài 4
+	//Nhập lệnh kiemTraUserName(a,b,c) với a,b,c là chuỗi tương ứng với username, password và confirm, lệnh sẽ kiểm tra nếu username,password hợp lệ hay không, 
+	//password và confirm có trùng nhau không và đưa ra thông báo, thông báo password có hợp lệ hay không chỉ đưa ra khi password và confirm trùng nhau.
+		user = {
+			username : "username",
+			password : "password",
+			confirm: "confirm"
+			}
+		function kiemTraUserName(a,b,c)
+			{
+				user.username = a;
+				user.password = b;
+				user.confirm = c;
+				if (a && a.length<21 ) {
+					document.write("User name hợp lệ </br>")
+				}
+				else {document.write("User name không hợp lệ</br>")}
+					
+				
+				if (b == c){
+					if ( a.length>5 && a.length <33) {
+						document.write("Password hợp lệ</br>")
+					}
+					else { document.write("Password không hợp lệ</br>")}
+				}
+				else {document.write("Password phải trùng nhau</br>")}
+			}
+
+	
+						
+		
+			
+	</script>
+	
+	
+	
+	
+</head>

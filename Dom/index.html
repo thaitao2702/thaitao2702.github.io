@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+<script>
+	//Bài 1:
+	function changeFontSize (x) {
+		var a = document.getElementById("wrapper");
+		a.style.fontSize =  x +"px";
+		}
+
+	//Bài 2:
+	function increaseFontSize(x) {
+		var a = document.getElementsByClassName("paragraph");
+		if (parseFloat(window.getComputedStyle(a[x-1], null).getPropertyValue('font-size'))<31){
+			a[x-1].style.fontSize = (parseFloat(window.getComputedStyle(a[x-1], null).getPropertyValue('font-size'))+1)+"px";
+		}
+	}	
+	
+	//Bài 3:
+	function decreaseFontSize(x) {
+		var a = document.getElementsByClassName("paragraph");
+		if (parseFloat(window.getComputedStyle(a[x-1], null).getPropertyValue('font-size'))>10){
+		a[x-1].style.fontSize = (parseFloat(window.getComputedStyle(a[x-1], null).getPropertyValue('font-size'))-1)+"px";
+		}
+	}
+	
+	
+	//Bài 4:
+	function changeColor () {
+		document.getElementById("p1").style.color = "green";
+		document.getElementById("p2").style.color = "yellow";
+		document.getElementById("p3").style.color = "red";
+	}
+
+	
+	//Bài 5
+	function changeBgColor(x) {
+		document.getElementsByTagName("body")[0].style.backgroundColor = x;
+		}
+
+	//Bài 6
+	function copyContent(x,y) {
+		document.getElementsByClassName("paragraph")[x-1].innerHTML =document.getElementsByClassName("paragraph")[y-1].innerHTML;
+	}	
+
+</script>
+<div id = "wrapper">
+<div class="paragraph" id= "p1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mattis diam id neque rutrum, ut blandit libero rhoncus. Vestibulum at lobortis orci. Maecenas convallis sapien vel elementum vehicula. Morbi sodales cursus nulla, at faucibus lectus mollis sed. Proin iaculis pretium nulla, vitae eleifend ipsum pretium fringilla. Nunc facilisis mauris purus, sed consectetur orci pretium ut. Etiam sed tincidunt nisi. Nullam congue nec dolor in pharetra. Aenean ligula arcu, pellentesque sit amet ultricies vel, lobortis id ex. Sed ex orci, fringilla et vehicula vel, lacinia quis nibh. Cras suscipit eu lorem eu elementum. Ut scelerisque nec enim id rutrum. Curabitur nunc velit, suscipit vitae tristique a, semper sit amet felis. Nullam quis accumsan dolor. Aliquam id ultricies sapien. Vivamus congue, nulla id mattis cursus, velit sapien pharetra orci, quis iaculis justo justo et erat.
+</div>
+
+<div class="paragraph" id = "p2">
+Fusce tincidunt at nisl sit amet ullamcorper. Morbi scelerisque eros neque, id pharetra lectus sodales id. Suspendisse venenatis aliquet nunc non porta. Curabitur augue lacus, dictum et auctor ac, sollicitudin non felis. Suspendisse vehicula elit ac suscipit tincidunt. Ut consequat mollis ante, a luctus urna elementum vitae. Nunc aliquet mauris erat, in eleifend quam sodales et. Cras dignissim eu risus ut auctor. Cras porta enim pharetra ullamcorper posuere. Donec lacinia purus elementum nisl faucibus, id dictum purus molestie. Praesent consectetur elit nec convallis gravida. Cras arcu mauris, molestie in vehicula vel, ullamcorper at erat. Aenean congue ac metus at tempor.
+</div>
+
+<div class = "paragraph" id = "p3">
+Nulla at pulvinar eros. Etiam feugiat egestas lectus, sed dictum dui pellentesque vitae. Cras pharetra tellus at aliquet aliquet. Phasellus et massa rhoncus, pretium orci quis, fermentum elit. Sed enim orci, tincidunt id arcu sit amet, tincidunt sagittis eros. In in vulputate velit. Proin porttitor et nibh sit amet blandit. Ut quam tortor, lobortis id quam et, mollis lobortis dolor.
+</div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	
+	<style>
+	div {
+	background-color:red;
+	}
+	
+	</style>
+	
+	<script>
+
+	
+	
+	//Bài 1
+	var now = new Date();   // Lấy thời gian hiện tại
+	var date = now.getDate();   // Lấy ngày từ thời gian hiện tại
+	var month = now.getMonth() + 1;   // Lấy tháng từ thời gian hiện tại. Do tháng trong javascript tính từ 0 - 11 nên phải +1
+	var year = now.getFullYear();   // Lấy năm (đầy đủ 4 số) từ thời gian hiện tại
+	function NTN() {
+		document.write ("Hôm nay là ngày " + date +" tháng " + month +" năm " +year)
+		if (month>0 && month <4) {document.write(" mùa xuân")}
+		else if (month < 7) {document.write(" mùa hè")}
+		else if (month <10) {document.write(" mùa thu")}
+		else {document.write(" mùa đông")}
+	}
+	
+	//Bài 2
+	var c;
+	var b;
+	function catChuoi(a){
+		if (typeof(a)=="number") {
+			b = a.toString()
+			if (b.length<11){
+				alert(b)
+			}
+			else {
+				c = b.substring(0,10);
+				alert(c+"...")
+				}
+		}
+		
+		if (a.length<11){
+				alert(a)
+			}
+			else {
+				c = a.substring(0,10);
+				alert(c+"...")
+				} 
+	}
+	
+	//Bài 3
+	function checkDiem(a){
+		if (a>=0 && a<=10){
+			if (a>=0 && a<=3.9) {alert("F")}
+			else if (a<=5.4) {alert("D")}
+			else if (a<=6.9) {alert("C")}
+			else if (a<=8.4) {alert("B")}
+			else {alert("A")}
+		}
+		else {alert("Điểm nhập phải nhỏ hơn 10 và lớn hơn 0")}
+	}					
+		
+	//Bài 4
+	function translate(a){
+		switch (a){
+			case "VN": alert("Xin Chào!");
+			break;
+			case "FR": alert("Salut!");
+			break;	
+			case "GM": alert("Hallo!");
+			break;
+			case "CN": alert("Ni hao!");
+			break;
+			case "JP": alert("Konichiwa!");
+			break;
+			default: alert("Xin Chào!")
+		}
+	}
+	
+	//Bài 5
+	function mang(a){
+		for (var x =0; x<a.length; x++){
+			if (a[x]== true) { 
+				alert("giá trị true đầu tiên xuất hiện tại vị trí thứ " + (x+1));
+				break;}
+			else continue
+		}
+	}
+	
+	//Bài 6
+	function xanhdo(){
+		for (var x=1; x<=100; x++){
+			if (x%2==0) { document.write("<div style =color:green>" + x + "</div>") }
+			else {document.write("<div style = color:red>"+ x + "</div>")}
+		}
+	}
+	</script>
+	
+	
+	
+	
+</head>

@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<div id = "chucmung"<H1>Chúc mừng bạn đã đăng ký thành công</br>
+Thông tin đăng ký của bạn:</h1>
+</div>
+<div id = "thongtin">
+	<h2 id = "hoten">Họ tên: <h2> </br>
+	<h2 id = "diachi">Địa chỉ: </h2></br>
+	<h2 id = "email">Email: </h2></br>
+	<h2 id = "sdt">Số điện thoại: </h2></br>
+	<h2 id = "matkhau">Mật khẩu: </h2></br>
+	<h2 id = "ngaythangnamsinh">Ngày tháng năm sinh: </h2></br>
+	<h2 id = "gioitinh">Giới tính: </h2></br>
+</div>
+
+
+
+<script>
+	var a = document.URL;
+	a =  decodeURIComponent(a);
+	var hoten = a.slice(a.indexOf('name=')+5,a.indexOf('&adress='));
+	hoten = hoten.replace(/\+/g,' ');
+	var diachi = a.slice(a.indexOf('adress=')+7,a.indexOf('&email'));
+	diachi = diachi.replace(/\+/g,' ');
+	var email = a.slice(a.indexOf('email=')+6,a.indexOf('&phone='));
+	var sdt = a.slice(a.indexOf('phone=')+6,a.indexOf('&password'));
+	var matkhau = a.slice(a.indexOf('password=')+9,a.indexOf('&day'));
+	var day = a.slice(a.indexOf('day=')+4,a.indexOf('&month'));
+	var month = a.slice(a.indexOf('month=')+6,a.indexOf('&year'));
+	var year =a.slice(a.indexOf('year=')+5,a.indexOf('year=')+9);
+	var gioitinh = a.slice(a.indexOf('gender=')+7,a.length)
+	var ngaythangnamsinh = day + '/'+month+"/" + year;
+	$('#hoten').append(hoten);
+	$('#diachi').append(diachi);
+	$('#email').append(email);
+	$('#sdt').append(sdt);
+	$('#matkhau').append(matkhau);
+	if (a.search("gender")>0){
+		$('#gioitinh').append(gioitinh);
+	}
+	if (day !=="Ngày+sinh" && month !== "Tháng+sinh" && year !== "Năm+sinh"){
+		$('#ngaythangnamsinh').append(ngaythangnamsinh);
+	}
+
+</script>
+
+</body>
+
+
+</html>

@@ -54,7 +54,7 @@ img {
 #anh2:hover{
 	
 		transform:scale(1.4);
-	transition:transform 0.3s linear;
+	transition:transform 1s linear;
 	
 }
 

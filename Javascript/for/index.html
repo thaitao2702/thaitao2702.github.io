@@ -1,0 +1,90 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	
+
+	<script>
+
+	
+	
+	//Bai 1: viet ham tinh n!
+	//VD: giaiThua(12)
+		var y = 1;
+		function giaiThua(a)
+		{
+			for (var x = 1; x<a; x++)
+				{ 
+						y=y*x
+				}
+				document.write("Giai thua cua " + a + " la " + y*a)
+		}
+		
+	//Bai 2: Dao nguoc chuoi
+	//VD: daoNguocChuoi("Meo meo")
+		function daoNguocChuoi(a)
+			{
+				for (var x=0; x<a.length ; x++)
+					{
+						document.write(a[a.length-x-1])
+					}
+			}
+	
+	//Bai 3: Nhân Chuỗi
+	//VD: duplicate("Alo Alo")
+		function duplicate(a)
+			{	document.write(a+"-");
+				for (var x=0; x<8; x++)
+					{
+						document.write(a+"-")
+					}
+				document.write(a)
+			}
+	
+	//Bai 4: Sắp xếp tên học viên theo thứ tự bảng chữ cái
+	//VD: sapXep(["Thai", "Nguyen","Hai"])
+		function sapXep(a)
+			{
+				var b= a.sort();
+				document.write("<h1>Danh sách học viên</h1>");
+				for (var x=0; x< b.length; x++)
+					{
+						document.write(x+1 +"."+b[x] + "</br>")
+					}
+			}
+	
+	
+	//Bài 5: Gấp đôi mảng
+	//Sau khi nhập mảng, nhấn b để xem giá trị mới của mảng
+	//VD: x2Array([12,11,4]) 
+		
+		var b =[];
+		function x2Array(a)
+			{
+				for (var x= 0; x<a.length; x++)
+					{
+						a[x]=a[x]*2;
+						b=a
+					}
+			}
+	
+	//Bài 6: Số dư của mảng
+	//Sau khi nhập mảng, gõ b để xem giá trị mới của mảng
+	//VD: soDu([12,4,3,5])
+		
+		function soDu(a)
+			{
+				for (var x= 0; x<a.length; x++)
+					{
+						a[x]=a[x]%2;
+						b=a
+					}
+			}
+			
+	
+	</script>
+	
+	
+	
+	
+</head>

@@ -1,0 +1,155 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+	<div id="text">
+		<h1>GAMING MOUSE</h1>
+	</div>
+	
+	<table>
+		<thead>
+			<tr>
+				<td>Hình Ảnh <label id ="6" > </td>
+				<td>Tên<label id ="1" class='sort'><i class="fa fa-sort" aria-hidden="true"></i></label></td>
+				<td>Hãng<label id ="2" class='sort'><i class="fa fa-sort" aria-hidden="true"></i></label></td>
+				<td>Độ Phân Giải<label id = "3" class='sort'><i class="fa fa-sort" aria-hidden="true"></i></label></td>
+				<td>Sensor<label id="4" class='sort'><i class="fa fa-sort" aria-hidden="true"></i></label></td>
+				<td>Giá<label id ="5" class='sort'><i class="fa fa-sort" aria-hidden="true"></i></label></td>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	
+	
+	
+	
+	
+	
+	</table>
+
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+	var dulieu = {
+		1: ["abyssus.png","Abyssus","Razer","5000","S3888","46"],
+		2: ["dachroma.png","Deathadder Chroma","Razer","10000","Avago 3989","59"],
+		3: ["ec2a.png","Ec2a","Zowie","3200","Avago 3310","59"],
+		4: ["g102.png","G102","Logitech", "6000","Mercury","32"],
+		5: ["g403.png","G403","Logitech","12000","Avago 3366","74"],
+		6: ["g502.png","G502","Logitech","12000", "Avago 3366", "49"],
+		7: ["kova.png","Kova","Roccat","7000", "R7","44"],
+		8: ["mamba5g.png","Mamba 5G","Razer","16000","5G PTE","110"],
+		9: ["ouroboros.png","Ouroboros","Razer","8200","4G DPE","84"],
+		10:["rival100dota.png","Rival 100 Dota","SteelSeries", "4000","Pixart 3059-SS","19"],
+		11:["rival700.png","Rival 700","SteelSeries","16000","PMW3360","74"],
+		12:["sensei.png","Sensei","SteelSeries","12000","Avago A9500","50"],
+		13:["tyon.png","Tyon","Roccat","8200","ProAim R3","86"],
+		14:["fk1.png","Fk1","Zowie","3200","Avago 3310","59"],
+		15:["m65.png","M65","Corsair","8200","PMW3360","46"],
+		16:["katar.png","Katar","Corsair","8200","Unknow","26"],
+	}
+
+	$(function(){
+		inbang();
+	})
+	
+	//Hàm in ra nội dung bảng
+	function inbang(){
+		$('tbody').html('');
+		var html = ''
+		$('tbody').append(html);
+		for (var e= 1; e<=16; e++) {
+			html += '<tr><td><img src="'+dulieu[e][0]+'"<td></td><td>'+dulieu[e][1]+'</td><td>'+dulieu[e][2]+'</td><td>'+dulieu[e][3]+'dpi</td><td>'+dulieu[e][4]+'</td><td>'+dulieu[e][5]+'$</td></tr>'
+		}
+		$('tbody').append(html);
+		}
+		
+	//Hàm sắp xếp theo cột 
+	
+	
+	var dulieu2 = dulieu;
+	var sapxep = [];
+	$(function (){
+		$('label').on("click", function (){
+			if ($(this).html()=='<i class="fa fa-sort" aria-hidden="true"></i>' || $(this).html() =='<i class="fa fa-sort-desc" aria-hidden="true"></i>'){
+				$('.sort').html('<i class="fa fa-sort" aria-hidden="true"></i>');
+				$(this).html('<i class="fa fa-sort-asc" aria-hidden="true"></i>');
+				sapxep = [];
+				var x = $(this).attr('id');
+				for ( a = 1; a<=16; a++){
+					sapxep.push(dulieu[a][x])
+					
+				}
+				if (isNaN(sapxep[0])){
+					sapxep = sapxep.sort();
+				}
+				else {
+					sapxep = sapxep.sort(function(a, b){return a-b})
+				}
+				
+				
+				for (var b = 0; b<=15; b++){
+					for ( var c =b + 1; c<=16; c++){
+						var i=[];
+						if (sapxep[b]== dulieu[c][x]){
+							i=  dulieu[b+1]
+							dulieu[b+1]=dulieu[c];
+							dulieu[c]=i;
+							break;
+						}
+					}
+				}
+				inbang();
+			}
+			else if ($(this).html()=='<i class="fa fa-sort-asc" aria-hidden="true"></i>'){
+				$('.sort').html('<i class="fa fa-sort" aria-hidden="true"></i>');
+				$(this).html('<i class="fa fa-sort-desc" aria-hidden="true"></i>');
+				sapxep = [];
+				var x = $(this).attr('id');
+				for ( a = 1; a<=16; a++){
+					sapxep.push(dulieu[a][x])
+					
+				}
+				if (isNaN(sapxep[0])){
+					sapxep = sapxep.sort();
+					sapxep.reverse();
+				}
+				else {
+					sapxep = sapxep.sort(function(a, b){return b-a})
+				}
+				
+				
+				for (var b = 0; b<=15; b++){
+					for ( var c =b + 1; c<=16; c++){
+						var i=[];
+						if (sapxep[b]== dulieu[c][x]){
+							i=  dulieu[b+1]
+							dulieu[b+1]=dulieu[c];
+							dulieu[c]=i;
+							break;
+						}
+					}
+				}
+				inbang();	
+			}	
+		});
+	})
+
+	
+		
+</script>
+
+</body>
+
+</html>

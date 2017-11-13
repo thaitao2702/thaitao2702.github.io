@@ -1,0 +1,144 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	
+	
+	<script>
+	//Bai 1
+	function printTriangle(a) {
+		var str = "";
+		for (var x=1; x<=a+1; x++){
+			for (var y=1; y<x; y++){
+				str +="*"
+			}
+		str +="</br>";
+		}	
+	document.write(str);
+	}
+	
+	//Bai 2
+	//function veCotDau(a) vẽ 1 hàng gồm a kí tự *
+	function veCotDau(a){
+		var str = "";
+		for (var x=1; x<=a; x++){
+			str += "*";
+		}
+		document.write(str)
+	}
+	
+	//giống function trên
+	function veSao(a){
+		var sao = "";
+		for (var x=1; x<=a; x++){
+			sao += "*";
+		}
+		document.write(sao)
+	}
+	
+	//function veKhoangTrong(a) vẽ a khoảng trống
+	function veKhoangTrong(a){
+		var khoangtrong = '';
+		for (var x=1; x<=a; x++){
+			khoangtrong += '&#160;&#160;' ;
+		}
+		document.write(khoangtrong);
+	}
+		
+	//function printEmptyRectangle(a,b) vẽ 1 hình vuông rỗng với chiều ngang a, chiều cao b
+	 function printEmptyRectangle(a, b){
+		
+		//vẽ hàng ngang đầu
+		veCotDau(a);
+		document.write("</br>");
+		//vẽ các hàng ở giữa
+		for (var x=1; x<=b-2; x++){
+		document.write("*");
+		veKhoangTrong(a-2);
+		document.write("*</br>")
+		}
+		//vẽ hàng ngang cuối
+		veCotDau(a);
+			
+	}
+	
+	//Bài 3
+	//function printSpecialTrigangle(a) với thông số a lẻ vẽ 1 tam giác ngược có cạnh đáy rộng a
+	function  printSpecialTrigangle(a) {
+		//vẽ cạnh đáy
+		veCotDau(a);
+		document.write("</br>");
+		//vẽ các hàng dưới, khoảng trống ở đầu tăng dần và số sao giảm dần
+		for (var x=1; x<=a-1; x++){
+			veKhoangTrong(x);
+			veSao(a-x*2);
+			document.write("</br>")
+		}
+	}
+			
+	//Bài 4
+	//function printX(a) in ra hinh chu x voi chieu cao a
+	//function inXtren(a) in ra phan tren
+	function inXtren(a){
+		for (var x=0; x< (a-1)/2; x++){
+			veKhoangTrong(x);
+			veSao(1);
+			veKhoangTrong(a-2*(x+1));
+			veSao(1);
+			document.write("</br>")
+		}
+	}
+	//function inXduoi(a) in ra phan duoi
+	function inXduoi(a){
+		for (var x=(a-1)/2; x> 0; x--){
+			veKhoangTrong(x-1);
+			veSao(1);
+			veKhoangTrong(a-2*x);
+			veSao(1);
+			document.write("</br>")
+		}
+	}
+	
+	function printX(a){
+		inXtren(a);
+		veKhoangTrong((a-1)/2);
+		veSao(1);//vẽ 1 ngôi sao ở chính giữa chữ x
+		document.write("</br>");
+		inXduoi(a);
+	}
+	
+	//Bài 5
+	// function butterflyTren(a) in phần trên của con bướm
+	function butterflyTren(a){
+		for( var x=1; x<= (a-1)/2; x++){
+			veSao(x);
+			veKhoangTrong(a-x*2);
+			veSao(x);
+			document.write("</br>");
+		}
+	}
+	
+	//function butterflyDuoi(a) in phần dưới con bướm
+	function butterflyDuoi(a){
+		for( var x=(a-1)/2; x>0;x--){
+			veSao(x);
+			veKhoangTrong(a-x*2);
+			veSao(x);
+			document.write("</br>");
+		}
+	}
+	
+	//function printButterfly(a) in ra con bướm có chiều cao a
+	function  printButterfly(a) {
+		butterflyTren(a);
+		veSao(a);
+		document.write("</br>");
+		butterflyDuoi(a);
+	}
+	</script>
+	
+	
+	
+	
+	
+</head>

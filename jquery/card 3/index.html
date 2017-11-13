@@ -226,7 +226,6 @@ function chayprogressbar(x) {
 			clearInterval(run);
 		}
 		if (thoigianconlai < 0){
-			$('#blackbackground').css('display','block');
 			$('#main').children('div').children('img').on("mouseover", function (){
 				$(this).removeClass('imghover');
 			})	
@@ -239,13 +238,14 @@ function chayprogressbar(x) {
 			$('#winlosewrapper1').css('display','block');
 			$('#winlosewrapper1').animate({opacity:1},3000);
 			$('#main').children('img').css('pointer-events', 'none');
+			$('#blackbackground').css('display','block');
 			//Khong cho click vào nút retry cho đến khi hiện xong
 			$('#retry').css('pointer-events', 'none');
 			sodapandung = 0;
 			setTimeout( function ()
 				{
 					$('#retry').css('pointer-events', 'auto');
-			},2000);
+				},2000);
 		}},100);
 }
 

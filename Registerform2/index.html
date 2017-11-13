@@ -1,0 +1,255 @@
+<html>
+<head>
+    <title>Home Page</title>
+    <meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<div id = "wrapper">
+	<div id = "titlewrapper">
+		<h1> Đăng ký thành viên </h1>
+	</div>
+	<form action = 'result.html' id = "form">
+		<input type="text" id = "name" name = "name" placeholder ="Họ Tên" /></br>
+		<input type="text" id = "adress" name = "adress" placeholder ="Địa Chỉ"/></br>
+		<input type="text" id = "email" name= "email" placeholder ="Email"/></br>
+		<input type="text" id = "phone" name= "phone" placeholder ="Điện Thoại"/></br>
+		<input type="password" id = "password" name = "password" placeholder = "Mật khẩu"></br>
+		<select name = "day" id = "day" >
+			<option class="dongdau" >Ngày sinh</option>
+			<option value ="01">01</option>
+			<option value ="02">02</option>
+			<option value ="03">03</option>
+			<option value ="04">04</option>
+			<option value ="05">05</option>
+			<option value ="06">06</option>
+			<option value ="07">07</option>
+			<option value ="08">08</option>
+			<option value ="09">09</option>
+			<option value ="10">10</option>
+			<option value ="11">11</option>
+			<option value ="12">12</option>
+			<option value ="13">13</option>
+			<option value ="14">14</option>
+			<option value ="15">15</option>
+			<option value ="16">16</option>
+			<option value ="17">17</option>
+			<option value ="18">18</option>
+			<option value ="19">19</option>
+			<option value ="20">20</option>
+			<option value ="21">21</option>
+			<option value ="22">22</option>
+			<option value ="23">23</option>
+			<option value ="24">24</option>
+			<option value ="25">25</option>
+			<option value ="26">26</option>
+			<option value ="27">27</option>
+			<option value ="28">28</option>
+			<option value ="29">29</option>
+			<option value ="30">30</option>
+			<option value ="31">31</option>
+		</select>
+		<select name = "month" id = "month">
+			<option>Tháng sinh</option>
+			<option value ="01">01</option>
+			<option value ="02">02</option>
+			<option value ="03">03</option>
+			<option value ="04">04</option>
+			<option value ="05">05</option>
+			<option value ="06">06</option>
+			<option value ="07">07</option>
+			<option value ="08">08</option>
+			<option value ="09">09</option>
+			<option value ="10">10</option>
+			<option value ="11">11</option>
+			<option value ="12">12</option>
+		</select>
+		<select name = "year" id = "year">
+			<option>Năm sinh </option>
+			<option value ="2000">2000</option>
+			<option value ="1999">1999</option>
+			<option value ="1998">1998</option>
+			<option value ="1997">1997</option>
+			<option value ="1996">1996</option>
+			<option value ="1995">1995</option>
+			<option value ="1994">1994</option>
+			<option value ="1993">1993</option>
+			<option value ="1992">1992</option>
+			<option value ="1991">1991</option>
+			<option value ="1900">1900</option>
+		</select></br>
+		<input type="radio" id = "nam" name = "gender" value = "nam"/><label>Nam</label>
+		<input type="radio" id = "nu" name = "gender" value = "nữ"/><label>Nữ</label>
+		<span id="gender"></span></br>
+		<div id ="submitwrapper">
+			<input type="submit" id = "button" value = "Đăng Ký"/></br>
+		</div>
+	
+</div>	
+
+
+
+
+
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script>
+
+	
+	$(function (){
+		if (document.getElementById("nam").checked || document.getElementById("nu").checked){
+			$('#gender').html('');
+		}
+	});
+	
+	$('#form').on('submit', function (){
+		var isValid = true;
+		if ($('#name').val().trim() == ''){
+			$('#name').attr('placeholder','Bạn chưa nhập tên');
+			$('#name').addClass('sai');
+			isValid = false;
+		}
+		else {
+			if ($('#name').val().trim().search(' ')== -1){
+				$('#name').val('');
+				$('#name').attr('placeholder','Vui lòng nhập họ tên đầy đủ');
+				$('#name').addClass('sai');
+				isValid = false;
+			}
+			else {
+				if($('#name').val().trim().length<5){
+					$('#name').val('');
+					$('#name').attr('placeholder','Họ tên không hợp lệ, vui lòng nhập lại');
+					$('#name').addClass('sai');
+					isValid = false;
+				}
+			}	
+		}
+			
+		if ($('#adress').val().trim() == ''){
+			$('#adress').val('');
+			$('#adress').attr('placeholder','Bạn chưa nhập địa chỉ');
+			$('#adress').addClass('sai');
+			isValid = false;
+		}
+		else {
+			if ($('#adress').val().trim().match(/^(?=.*\d).{4,50}$/)== null){
+				$('#adress').val('');
+				$('#adress').attr('placeholder','Địa chỉ không hợp lệ, vui lòng nhập lại');
+				$('#adress').addClass('sai');
+				isValid = false;
+			}
+		}
+	
+		
+		//email
+		if ($('#email').val().trim() == ''){
+			$('#email').attr('placeholder','Bạn chưa nhập email');
+			$('#email').addClass('sai');
+			isValid = false;
+		}
+		else {
+			if ($('#email').val().trim().match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)==null){
+				$('#email').attr('placeholder','Vui lòng nhập lại email');
+				$('#email').addClass('sai');
+				isValid = false;
+			}
+		}
+		
+		//SDT
+		if ($('#phone').val().trim() == ''){
+			$('#phone').attr('placeholder','Bạn chưa nhập số điện thoại');
+			$('#phone').addClass('sai');
+			isValid = false;
+		}
+		else{	
+			if ($('#phone').val().trim().match(/^(01[2689]|09)[0-9]{8}$/)==null){
+				$('#phone').val('');
+				$('#phone').attr('placeholder','Số điện thoại không hợp lệ, vui lòng nhập lại');
+				$('#phone').addClass('sai');
+				isValid = false;
+			}
+		}
+		
+		//Password
+		if ($('#password').val().trim() == ''){
+			$('#password').attr('placeholder','Bạn chưa nhập mật khẩu');
+			$('#password').addClass('sai');
+			isValid = false;
+		}
+		else{
+			if ($('#password').val().trim().match(/^(?=.*\d).{4,14}$/)== null){
+				$('#password').val('');
+				$('#password').attr('placeholder','Mật khẩu không hợp lệ, vui lòng nhập lại');
+				$('#password').addClass('sai');
+				isValid = false;
+			}
+		}
+		
+		//Gender
+		if ( !document.getElementById("nam").checked && !document.getElementById("nu").checked){
+			$('#gender').html("&#x202F Bạn chưa chọn giới tính");	
+			isValid = false;
+			
+		}
+		else {
+			$('#gender').html('');
+		}
+		
+		//Ngày tháng năm
+		if ($('#day').val()=="Ngày sinh") {
+			$('#day').css('color','red');
+			$('#day').children('option').css('color','black');
+			isValid = false;
+			$('#day').change(function (){
+				$('#day').css('color','black');
+			})
+		}
+		else {
+			$('#day').css('color','black');
+		}
+			
+		if ($('#month').val()=="Tháng sinh") {
+			$('#month').css('color','red');
+			$('#month').children('option').css('color','black');
+			isValid = false;
+			$('#month').change(function (){
+				$('#month').css('color','black');
+			})
+		}
+		
+		else {
+			$('#month').css('color','black');
+		}
+		
+		if ($('#year').val()=="Năm sinh") {
+			$('#year').css('color','red');
+			$('#year').children('option').css('color','black');
+			isValid = false;
+			$('#year').change(function (){
+				$('#year').css('color','black');
+			})
+		}
+		
+		else {
+			$('#year').css('color','black');
+		}
+		
+		
+		return isValid;
+	})
+	
+	
+		if (document.getElementById("nam").checked || document.getElementById("nu").checked){
+			$('#gender').html('');
+		}
+	
+			
+		
+</script>
+
+</body>
+
+</html>
