@@ -1,5 +1,33 @@
 //thay doi css menu
 $(function(){
+    //image gallery start
+    var gallery = $('.info-gallery');
+    var thumbnails = $('.thumbnail');
+    var thumbs = $('.thumb');
+    var move_thumb = $('.thumb-move');
+    var move_thumb_w = thumbs[0].getBoundingClientRect().width;
+    var move_thumb_h = thumbs[0].getBoundingClientRect().height;
+    var original_top = 0;
+    var return_able = false;
+    move_thumb.css({
+        'width': move_thumb_w +'px',
+        'height': move_thumb_h +'px'
+    });
+    
+        thumbs.each(function(i){
+            var thumb = $(this);
+            thumb.on('mouseover',function(){                          
+                move_thumb.animate({
+                    top : move_thumb_h*i
+                    
+                },200).css('background','rgba(171, 171, 171, 0.28)')
+            })
+                
+        })
+
+
+    //image gallery end
+
 
     //Search function
     var search_bar = $('.search_bar');

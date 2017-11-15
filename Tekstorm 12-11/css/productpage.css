@@ -2065,6 +2065,13 @@ footer h3{
     height:800px;
 }
 
+.back.big-image{
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:0;
+}
+
 .thumbnail{
     top: 300px;    
     position: absolute;
@@ -2075,6 +2082,16 @@ footer h3{
 .thumb{
     width: 100%;    
     padding: 20px 10px;
+    position: relative;
+    z-index:2;
+    
+}
+
+.thumb-move {
+    position: absolute;
+    top:0;    
+    border: 2px solid lightgrey;
+    
 }
 
 
