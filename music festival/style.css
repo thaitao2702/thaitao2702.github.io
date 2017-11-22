@@ -1,0 +1,39 @@
+/* css chung */
+
+*{
+    padding:0;
+    margin:0;
+}
+
+ul{
+    list-style-type:none;
+}
+
+/* css chung end */
+
+
+/* slide start */
+.slide-wrapper{
+    position:relative;
+    width: 100%;
+    overflow:hidden;
+}
+
+.slide{
+    width:300%;
+}
+
+.slide li{
+    float:left;
+}
+
+
+/*slide button*/
+.btn{
+    position: absolute;
+    top:50%;
+    left:10%;
+}
+
+
+/* slide end */
