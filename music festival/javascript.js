@@ -128,7 +128,7 @@ $(function(){
     $('.slide-wrapper').slide();
 
     //countdown timer
-    var countDownDate = new Date("Jan 1, 2018 00:00:00").getTime();
+    var countDownDate = new Date("Jan 1, 2019 00:00:00").getTime();
     countdowntime();
     function countdowntime() {
         
